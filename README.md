@@ -11,3 +11,8 @@ It supports following features:
 *	Giving and receiving feedback through Comments
 *	Viewing project ideas and sending requests to collaborate
 *	Adding members to Project Group for Collaboration
+
+# Technology Stack
+
+* Python_ 3.6.x / 3.7.x
+* `Django Web Framework`_ 1.11.x / 2.0.x
