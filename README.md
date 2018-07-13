@@ -14,7 +14,7 @@ It supports following features:
 
 Quick start
 -----------
-1. (optional) create virtual env ex. mkvirtualenv mybook_env
+1. (optional) create virtual env ex. mkvirtualenv mytest_env
 2. pip install -r requirements.txt
 3. python manage.py migrate
 4. python manage.py runserver
