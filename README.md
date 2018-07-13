@@ -4,10 +4,10 @@ Techno Forum is a Web App created for Team Building and Project Collaboration wi
 
 It supports following features:
 
-•	Login/ Sign Up 
-•	Viewing and Editing Profile 
-•	Creating and Sharing Posts for Project ideas 
-•	Editing Shared Posts 
-•	Giving and receiving feedback through Comments
-•	Viewing project ideas and sending requests to collaborate
-•	Adding members to Project Group for Collaboration
+*	Login/ Sign Up 
+*	Viewing and Editing Profile 
+*	Creating and Sharing Posts for Project ideas 
+*	Editing Shared Posts 
+*	Giving and receiving feedback through Comments
+*	Viewing project ideas and sending requests to collaborate
+*	Adding members to Project Group for Collaboration
