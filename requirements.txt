@@ -1,0 +1,13 @@
+argon2-cffi==18.1.0
+bcrypt==3.1.4
+certifi==2018.4.16
+cffi==1.11.5
+Django==2.0.7
+django-bootstrap-form==3.4
+django-multiselectfield==0.1.8
+Pillow==5.2.0
+pycparser==2.18
+python-dateutil==2.7.3
+pytz==2018.5
+six==1.11.0
+wincertstore==0.2

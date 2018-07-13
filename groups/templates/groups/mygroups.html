@@ -1,0 +1,23 @@
+{% extends "groups/group_base.html" %}
+
+{% block body_block %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<ul>
+    <div class="container">
+
+{% for group in groups.all %}
+
+   <li>
+       <a href="{% url 'groups:group_detail' pk=group.pk %}"><h2>{{group.name}}</h2></a>
+    </li>
+
+{% endfor %}
+    </div>
+</ul>
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "groups/group_base.html" %}
+
+{% block body_block %}
+<br>
+<br>
+<br>
+<br>
+
+{% for group in groups.all %}
+    {% for member in group.group_members.all %}
+        {% if member.profile.pk == user_id and member.admin%}
+            {% for req in group.requests.all %}
+                {% if req.accepted == False %}
+
+                    <div class="card-login">
+                    <div class="card-header">Group: {{ req.group }}</div>
+
+                    <div class="card-body">Sent by: {{ req.sent_by }}</div>
+                    <div class="card-footer">
+                    <a class="btn btn-primary" href="{% url 'groups:request_accept' pk=req.pk %}">Accept</a>
+                    <a class="btn btn-default" href="{% url 'groups:request_reject' pk=req.pk %}">Reject</a>
+                    </div>
+                    </div>
+                    <br>
+                                                                                                                                                                                                                     <br>
+
+                {% endif %}
+            {% endfor %}
+
+        {% endif %}
+    {% endfor %}
+
+{% endfor %}
+
+
+{% endblock %}

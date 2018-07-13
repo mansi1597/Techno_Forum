@@ -1,0 +1,49 @@
+{% extends "groups/group_base.html" %}
+
+{% block body_block %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="card-body bg-white btn-primary btn-simple btn-round">
+
+        <div class="card-header bg-white  text-dark" style="min-height: 80px;">
+            <h1>Group Name: {{group.name}}</h1>
+        </div>
+
+        <div class="card-body bg-light text-dark">
+             {% for member in group.members.all%}
+                 <p>Members Name: {{member}}</p>
+            {%endfor%}
+            <p>Member Count: {{group.members.count}}</p>
+        </div>
+
+        <div class="card-plain bg-default text-white btn-round " >Created on {{ group.project.posted_on|date:'d-M-Y' }} by {{ group.project.profile.user.username }}
+            </div>
+
+            <hr>
+             <div class="card-header bg-info text-white btn-round" >
+                Messages
+             </div>
+                <div class="card-body">
+                     {% for message in group.messages.all %}
+                         <div class="card-plain bg-light text-dark">
+                        <p><strong>{{  message.text|safe}}</strong></p>
+                             <p class="text-left"> By {{  message.user}}
+                            on {{  message.sent_at|date:'d-m-Y'}}</p>
+                         </div>
+                         {% empty %}
+                         <p class="text-dark">No Messages </p>
+                    {% endfor %}
+
+                </div>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'groups:message_create' pk=group.pk %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit"  class="btn btn-primary" value="Send">
+
+                </form>
+     </div>
+</div>
+{% endblock %}

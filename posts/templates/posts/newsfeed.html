@@ -1,0 +1,50 @@
+{% extends "posts/base.html"%}
+
+{% block body_block %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<h2 >Newsfeed</h2>
+    <div class="card card-header bg-warning text-white" style="width: 70%;">Create New Post</div>
+    <div class="card card-login " style="width: 70%;">
+    <div class="container p-lg-3">
+        <form method="post">
+            {% csrf_token %}
+            {{  form.as_p }}
+
+            <button class="btn btn-primary btn-round">Save</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="card card-header bg-warning text-white" style="width: 70%">Posts</div>
+    <div>
+        {% for item in posts %}
+            <div class="card card-login" style="width: 70%">
+                <div class="card-header bg-dark text-white" style="height: 50px;"> Project Title : {{ item.project_title|safe }}</div>
+                <div class="container">
+                    <br>
+                <p>{{ item.project_description|safe }}</p>
+                <p>Skills Required: {{ item.skills_required }}</p>
+                <p>Members Required: {{ item.members_required }}</p>
+
+                    <a class="btn btn-primary btn-simple" href="{% url 'posts:post_detail' pk=item.pk %}">Read More..</a>
+
+{#                    {% for member in item.group.members.all %}#}
+{#                        {% if  user_id != member.pk %}#}
+{#                            <a class="btn btn-primary btn-simple text-primary">Join</a>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+
+                    <br>
+                    <br>
+                </div>
+                <div class="card-footer" >Posted on {{ item.posted_on }} by {{ item.profile.user.username }}</div>
+            </div>
+        {% endfor %}
+    </div>
+<script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "accounts/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+{% load bootstrap %}
+<div class="card-login ">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    {% if registered %}
+
+    <h1>Thank you for registering!</h1>
+
+    {% else %}
+    <h1>Sign Up Here!</h1>
+    <h3>Fill out the form:</h3>
+
+    <form role="form" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ user_form|bootstrap }}
+        {{ profile_form|bootstrap }}
+
+
+        <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-round">Sign Up</button>
+    </div>
+    </form>
+
+    {% endif %}
+</div>
+    {% endblock %}

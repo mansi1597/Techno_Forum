@@ -1,0 +1,68 @@
+{% extends "posts/base.html" %}
+{% block body_block %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="card-body bg-white btn-primary btn-simple btn-round">
+        <div class="card-header bg-white  text-dark" style="min-height: 80px;">
+
+            <h1>Project Title: {{ posts.project_title|title|safe }}
+
+
+                    {% if user_req and user_req.accepted == False %}
+                         <a class="btn btn-primary text-white" style="position: relative; float: right; font-size: medium"> Request Sent</a>
+
+                    {% else %}
+
+                        {% if myuser not in posts.group.members.all %}
+                             <a class="btn btn-primary text-white" style="position: relative; float: right; font-size: medium" href="{% url 'groups:send_request' pk=posts.pk %}">Send Request</a>
+
+                        {% endif %}
+
+                    {% endif %}
+
+
+            </h1>
+        </div>
+
+            <div class="card-body bg-light text-dark">
+                 <p>
+                {{ posts.project_description|safe }}
+                </p>
+
+                <p>Skill Required: {{ posts.skills_required }}</p>
+                <p>Members Required: {{ posts.members_required}}</p>
+            </div>
+
+            <div class="card-plain bg-default text-white btn-round " >Posted on {{ posts.posted_on|date:'d-M-Y' }} by {{ posts.profile.user.username }}
+            </div>
+
+            <hr>
+             <div class="card-header bg-info text-white btn-round" >
+                Comments
+             </div>
+                <div class="card-body">
+                     {% for comment in posts.comments.all %}
+                         <div class="card-plain bg-light text-dark">
+                        <p><strong>{{  comment.comment_text}}</strong></p>
+                             <p class="text-left"> By {{  comment.author}}
+                            on {{  comment.comment_date|date:'d-m-Y'}}</p>
+                         </div>
+                         {% empty %}
+                         <p class="text-dark">No Comments </p>
+                    {% endfor %}
+
+                </div>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'posts:comment_create' pk=posts.pk %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit"  class="btn btn-primary" value="Comment">
+
+                </form>
+     </div>
+<script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}
