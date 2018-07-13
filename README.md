@@ -1,6 +1,6 @@
 
 # Techno_Forum
-Techno Forum is a Web App created for Team Building and Project Collaboration with Django, Sqlite3 implemented in Python. It provides functionality of Login, Register, Creating and sharing Projects, Giving and taking feedback through Comments, Creating Groups and messaging along with much other functionality.
+>Techno Forum is a Web App created for Team Building and Project Collaboration with Django, Sqlite3 implemented in Python. It provides functionality of Login, Register, Creating and sharing Projects, Giving and taking feedback through Comments, Creating Groups and messaging along with much other functionality.
 
 It supports following features:
 
