@@ -12,7 +12,9 @@ It supports following features:
 *	Viewing project ideas and sending requests to collaborate
 *	Adding members to Project Group for Collaboration
 
-# Technology Stack
-
-* Python_ 3.6.x / 3.7.x
-* `Django Web Framework`_ 1.11.x / 2.0.x
+Quick start
+-----------
+1. (optional) create virtual env ex. mkvirtualenv mybook_env
+2. pip install -r requirements.txt
+3. python manage.py migrate
+4. python manage.py runserver
