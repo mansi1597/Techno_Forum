@@ -1,0 +1,3 @@
+accounts/static/* linguist-vendored
+posts/css/* linguist-vendored
+home/static/* linguist-vendored
